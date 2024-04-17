@@ -1,0 +1,31 @@
+{
+    "name": "communitySubmissions",
+    "version": "1.0.0",
+    "fsrMinCompatibility": "7.2.0",
+    "type": "solutionpack",
+    "local": true,
+    "label": "Community Submissions",
+    "dependencies": [],
+    "prerequisite": null,
+    "publisher": "Fortinet",
+    "description": "Solution pack for community to submit custom solutions.",
+    "help": "https://github.com/fortinet-fortisoar/solution-pack-community-submissions/blob/release/1.0.0/README.md",
+    "category": [],
+    "supportInfo": null,
+    "iconLarge": null,
+    "postInstallConfig": null,
+    "date": "2024-04-16T05:52:26+00:00",
+    "contents": {
+        "playbooks": [
+            {
+                "name": "10 - SP - Community Submissions"
+            }
+        ],
+        "widgets": [
+            {
+                "apiName": "communitySubmission",
+                "name": "Community Submission"
+            }
+        ]
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "@context": "\/api\/3\/contexts\/WorkflowCollection",
+    "@type": "WorkflowCollection",
+    "name": "10 - SP - Community Submissions",
+    "description": null,
+    "visible": true,
+    "image": null,
+    "uuid": "81b623ef-f03c-43fc-ada8-85f39d7b9036",
+    "deletedAt": null,
+    "recordTags": []
+}
