@@ -1,15 +1,22 @@
 {
-    "name": "communitySubmissions",
+    "name": "submitYourContent",
     "version": "1.0.0",
-    "fsrMinCompatibility": "7.2.0",
+    "fsrMinCompatibility": "7.4.3",
     "type": "solutionpack",
     "local": true,
-    "label": "Community Submissions",
-    "dependencies": [],
+    "label": "Submit Your Content",
+    "dependencies": [
+        {
+            "name": "sOARFramework",
+            "type": "solutionpack",
+            "label": "SOAR Framework",
+            "minVersion": null
+        }
+    ],
     "prerequisite": null,
     "publisher": "Fortinet",
     "description": "Solution pack for community to submit custom solutions.",
-    "help": "https://github.com/fortinet-fortisoar/solution-pack-community-submissions/blob/release/1.0.0/README.md",
+    "help": "https://github.com/fortinet-fortisoar/solution-pack-submit-your-content/blob/release/1.0.0/README.md",
     "category": [],
     "supportInfo": null,
     "iconLarge": null,
@@ -18,7 +25,7 @@
     "contents": {
         "playbooks": [
             {
-                "name": "10 - SP - Community Submissions"
+                "name": "10 - SP - Submit Your Content"
             }
         ],
         "widgets": [

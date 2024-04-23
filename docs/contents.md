@@ -2,7 +2,7 @@
 |----------------------|
 # Contents
 
-The **SOC Experience** solution pack contains the following resources.
+The **Submit Your Content** solution pack contains the following resources.
 
 ## Widget
 
@@ -12,7 +12,7 @@ The **SOC Experience** solution pack contains the following resources.
 
 ## Playbook Collection
 
-| 10 - SP - Community Submissions |
+| 10 - SP - Submit Your Content |
 |:-------------------------------|
 
 | Playbook Name              | Description                                                                                                                                     |

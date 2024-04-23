@@ -3,8 +3,8 @@
 # Installation
 
 1. To install a solution pack, click **Content Hub** > **Discover**.   
-2. From the list of solution pack that appears, search for and select **Community Submissions**.    
-3. Click the **Community Submissions** solution pack card.   
+2. From the list of solution pack that appears, search for and select **Submit Your Content**.    
+3. Click the **Submit Your Content** solution pack card.   
 4. Click the **Install** button on the bottom to begin the installation.
 
 # Configuration

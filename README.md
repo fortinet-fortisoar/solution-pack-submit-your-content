@@ -3,7 +3,7 @@
 - **Version**:  1.0.0
 - **Certified**: No
 - **Publisher**: Fortinet
-- **Compatible Version**: Community Submissions
+- **Compatible Version**: Submit Your Content
 
 # Overview
 

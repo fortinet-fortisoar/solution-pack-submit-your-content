@@ -1,6 +1,7 @@
 [
     {
         "name": "communitySubmission",
-        "title": "Community Submission"
+        "title": "Community Submission",
+        "install_mode": "rpm"
     }
 ]
