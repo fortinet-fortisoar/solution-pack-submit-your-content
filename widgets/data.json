@@ -1,7 +1,7 @@
 [
     {
-        "name": "communitySubmission",
-        "title": "Community Submission",
+        "name": "submitContentForm",
+        "title": "Submit Content Form",
         "install_mode": "rpm"
     }
 ]

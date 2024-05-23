@@ -1,5 +1,4 @@
 {
-    "@context": "\/api\/3\/contexts\/Workflow",
     "@type": "Workflow",
     "triggerLimit": null,
     "name": "Send Email",
@@ -26,6 +25,20 @@
     "steps": [
         {
             "@type": "WorkflowStep",
+            "name": "Configuration",
+            "description": null,
+            "arguments": {
+                "sendViaSMTP": "false"
+            },
+            "status": null,
+            "top": "110",
+            "left": "450",
+            "stepType": "\/api\/3\/workflow_step_types\/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
+            "group": null,
+            "uuid": "dc772943-eb30-4f4a-9aac-f5049be92f80"
+        },
+        {
+            "@type": "WorkflowStep",
             "name": "Format Email",
             "description": null,
             "arguments": {
@@ -40,7 +53,7 @@
             },
             "status": null,
             "top": "110",
-            "left": "450",
+            "left": "775",
             "stepType": "\/api\/3\/workflow_step_types\/0109f35d-090b-4a2b-bd8a-94cbc3508562",
             "group": null,
             "uuid": "b02af770-0fa2-442e-8049-35fee6991c23"
@@ -51,33 +64,61 @@
             "description": null,
             "arguments": {
                 "output": "{{vars.steps.Format_Email.data['formatted_string']}}",
-                "status": "{{vars.steps.Send_Email_Via_SMTP.status}}{{vars.steps.Send_Email_Via_Exchange.status}}"
+                "status": "{{vars.steps.Send_via_SMTP.status}}{{vars.steps.Send_via_Exchange.status}}"
             },
             "status": null,
             "top": "110",
-            "left": "1425",
+            "left": "1750",
             "stepType": "\/api\/3\/workflow_step_types\/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
             "group": null,
             "uuid": "808a18cf-2f53-4a0b-8f75-0663f9493794"
         },
         {
             "@type": "WorkflowStep",
-            "name": "Send Email Via Exchange",
+            "name": "Send via",
+            "description": "Decision step to choose SMTP or Exchange",
+            "arguments": {
+                "conditions": [
+                    {
+                        "option": "SMTP",
+                        "step_iri": "\/api\/3\/workflow_steps\/20499387-4e00-427e-b370-2be32f873d0a",
+                        "condition": "{{ vars.sendViaSMTP }}",
+                        "step_name": "Send Email Via SMTP"
+                    },
+                    {
+                        "option": "Exchange",
+                        "step_iri": "\/api\/3\/workflow_steps\/c33c40fd-93a2-434e-96ee-7ed8a1630d46",
+                        "condition": "{{ not vars.sendViaSMTP }}",
+                        "step_name": "Send via Exchange"
+                    }
+                ],
+                "step_variables": []
+            },
+            "status": null,
+            "top": "110",
+            "left": "1100",
+            "stepType": "\/api\/3\/workflow_step_types\/12254cf5-5db7-4b1a-8cb1-3af081924b28",
+            "group": null,
+            "uuid": "1699fbf9-2830-4a37-8a55-a54b709fd2c4"
+        },
+        {
+            "@type": "WorkflowStep",
+            "name": "Send via Exchange",
             "description": null,
             "arguments": {
                 "name": "Exchange",
-                "config": "id",
+                "config": "fdb30570-3b26-4639-b306-631031c47131",
                 "params": {
                     "body": "<p>{{vars.steps.Format_Email.data['formatted_string']}}<\/p>",
                     "subject": "Community Submission {{vars.input.params.category}}: {{vars.input.params.solutionTitle}}",
                     "iri_list": "{{vars.input.params.fileIRI}}",
                     "cc_recipients": "",
-                    "to_recipients": "fsr-integrations@fortinet.com",
+                    "to_recipients": "ypatodkar@fortinet.com",
                     "bcc_recipients": "",
                     "inline_iri_list": ""
                 },
-                "version": "4.2.4",
-                "connector": "exchange_dev",
+                "version": "4.4.0",
+                "connector": "exchange",
                 "operation": "send_email",
                 "operationTitle": "Send Email",
                 "pickFromTenant": false,
@@ -85,21 +126,21 @@
             },
             "status": null,
             "top": "190",
-            "left": "1100",
+            "left": "1425",
             "stepType": "\/api\/3\/workflow_step_types\/0bfed618-0316-11e7-93ae-92361f002671",
             "group": null,
-            "uuid": "55269b7e-dbd9-45a9-9c5b-27790d2c05d7"
+            "uuid": "c33c40fd-93a2-434e-96ee-7ed8a1630d46"
         },
         {
             "@type": "WorkflowStep",
-            "name": "Send Email Via SMTP",
+            "name": "Send via SMTP",
             "description": null,
             "arguments": {
                 "name": "SMTP",
                 "config": "88c3d39c-2fa9-4731-b00d-29815008f17c",
                 "params": {
                     "cc": "",
-                    "to": "fsr-integrations@fortinet.com",
+                    "to": "ypatodkar@fortinet.com",
                     "bcc": "",
                     "from": "",
                     "type": "Manual Input",
@@ -119,31 +160,10 @@
             },
             "status": null,
             "top": "30",
-            "left": "1100",
+            "left": "1425",
             "stepType": "\/api\/3\/workflow_step_types\/0bfed618-0316-11e7-93ae-92361f002671",
             "group": null,
             "uuid": "20499387-4e00-427e-b370-2be32f873d0a"
-        },
-        {
-            "@type": "WorkflowStep",
-            "name": "Send via",
-            "description": "Decision step to choose SMTP or Exchange",
-            "arguments": {
-                "conditions": [
-                    {
-                        "default": true,
-                        "step_iri": "\/api\/3\/workflow_steps\/20499387-4e00-427e-b370-2be32f873d0a",
-                        "step_name": "Send Email Via SMTP"
-                    }
-                ],
-                "step_variables": []
-            },
-            "status": null,
-            "top": "110",
-            "left": "775",
-            "stepType": "\/api\/3\/workflow_step_types\/12254cf5-5db7-4b1a-8cb1-3af081924b28",
-            "group": null,
-            "uuid": "1699fbf9-2830-4a37-8a55-a54b709fd2c4"
         },
         {
             "@type": "WorkflowStep",
@@ -183,6 +203,16 @@
     "routes": [
         {
             "@type": "WorkflowRoute",
+            "name": "Configuration -> Format Email",
+            "targetStep": "\/api\/3\/workflow_steps\/b02af770-0fa2-442e-8049-35fee6991c23",
+            "sourceStep": "\/api\/3\/workflow_steps\/dc772943-eb30-4f4a-9aac-f5049be92f80",
+            "label": null,
+            "isExecuted": false,
+            "group": null,
+            "uuid": "6f398865-9042-4f22-a8ec-fd53e995b584"
+        },
+        {
+            "@type": "WorkflowRoute",
             "name": "Format Email -> Send via",
             "targetStep": "\/api\/3\/workflow_steps\/1699fbf9-2830-4a37-8a55-a54b709fd2c4",
             "sourceStep": "\/api\/3\/workflow_steps\/b02af770-0fa2-442e-8049-35fee6991c23",
@@ -203,43 +233,43 @@
         },
         {
             "@type": "WorkflowRoute",
-            "name": "Send Email Via Exchange -> Output",
+            "name": "Send via Exchange -> Output",
             "targetStep": "\/api\/3\/workflow_steps\/808a18cf-2f53-4a0b-8f75-0663f9493794",
-            "sourceStep": "\/api\/3\/workflow_steps\/55269b7e-dbd9-45a9-9c5b-27790d2c05d7",
+            "sourceStep": "\/api\/3\/workflow_steps\/c33c40fd-93a2-434e-96ee-7ed8a1630d46",
             "label": null,
             "isExecuted": false,
             "group": null,
-            "uuid": "1217b8a2-7ee3-4926-a311-791559699c9f"
+            "uuid": "29ec187e-24fb-4b67-bab9-19e45487a029"
         },
         {
             "@type": "WorkflowRoute",
             "name": "Send via -> Send Email",
             "targetStep": "\/api\/3\/workflow_steps\/20499387-4e00-427e-b370-2be32f873d0a",
             "sourceStep": "\/api\/3\/workflow_steps\/1699fbf9-2830-4a37-8a55-a54b709fd2c4",
-            "label": null,
+            "label": "SMTP",
             "isExecuted": false,
             "group": null,
             "uuid": "35011465-5ec6-42ff-8d53-bd1cb6aea1b8"
         },
         {
             "@type": "WorkflowRoute",
-            "name": "Send via -> Send Email Via Exchange",
-            "targetStep": "\/api\/3\/workflow_steps\/55269b7e-dbd9-45a9-9c5b-27790d2c05d7",
+            "name": "Send via -> Send via Exchange",
+            "targetStep": "\/api\/3\/workflow_steps\/c33c40fd-93a2-434e-96ee-7ed8a1630d46",
             "sourceStep": "\/api\/3\/workflow_steps\/1699fbf9-2830-4a37-8a55-a54b709fd2c4",
-            "label": "",
+            "label": "Exchange",
             "isExecuted": false,
             "group": null,
-            "uuid": "4ec1eeab-f042-4bbd-ae32-4b018c0806fa"
+            "uuid": "7f2fba63-04ed-4789-8b11-ea4f6024abf6"
         },
         {
             "@type": "WorkflowRoute",
-            "name": "Start -> Format Email",
-            "targetStep": "\/api\/3\/workflow_steps\/b02af770-0fa2-442e-8049-35fee6991c23",
+            "name": "Start -> Configuration",
+            "targetStep": "\/api\/3\/workflow_steps\/dc772943-eb30-4f4a-9aac-f5049be92f80",
             "sourceStep": "\/api\/3\/workflow_steps\/5b720867-96d4-4f4c-bdbf-20d4e60affeb",
             "label": null,
             "isExecuted": false,
             "group": null,
-            "uuid": "a60e4c92-cb70-497e-8bb0-60aafd83be2a"
+            "uuid": "44454319-7f32-4925-b5d4-bc4608aa5167"
         }
     ],
     "groups": [],
