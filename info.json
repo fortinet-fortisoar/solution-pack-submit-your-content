@@ -30,8 +30,8 @@
         ],
         "widgets": [
             {
-                "apiName": "communitySubmission",
-                "name": "Community Submission"
+                "apiName": "submitContentForm",
+                "name": "Submit Content Form"
             }
         ]
     }
