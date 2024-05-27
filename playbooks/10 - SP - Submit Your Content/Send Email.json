@@ -113,7 +113,7 @@
                     "subject": "Community Submission {{vars.input.params.category}}: {{vars.input.params.solutionTitle}}",
                     "iri_list": "{{vars.input.params.fileIRI}}",
                     "cc_recipients": "",
-                    "to_recipients": "ypatodkar@fortinet.com",
+                    "to_recipients": "fsr-integrations@fortinet.com",
                     "bcc_recipients": "",
                     "inline_iri_list": ""
                 },
@@ -140,7 +140,7 @@
                 "config": "88c3d39c-2fa9-4731-b00d-29815008f17c",
                 "params": {
                     "cc": "",
-                    "to": "ypatodkar@fortinet.com",
+                    "to": "fsr-integrations@fortinet.com",
                     "bcc": "",
                     "from": "",
                     "type": "Manual Input",
