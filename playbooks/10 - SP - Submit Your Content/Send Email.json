@@ -28,7 +28,7 @@
             "name": "Configuration",
             "description": null,
             "arguments": {
-                "sendViaSMTP": "false"
+                "sendViaSMTP": "true"
             },
             "status": null,
             "top": "110",
