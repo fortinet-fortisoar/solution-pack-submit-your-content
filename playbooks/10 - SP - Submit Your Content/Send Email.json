@@ -4,7 +4,7 @@
     "name": "Send Email",
     "aliasName": null,
     "tag": null,
-    "description": null,
+    "description": "Sends an email to fsr-integration when the file/solution is submitted.",
     "isActive": true,
     "debug": false,
     "singleRecordExecution": false,

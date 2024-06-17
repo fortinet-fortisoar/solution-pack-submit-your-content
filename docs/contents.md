@@ -8,7 +8,7 @@ The **Submit Your Content** solution pack contains the following resources.
 
 | Widget              | Description                                                                                     |
 |:--------------------|-------------------------------------------------------------------------------------------------|
-| Submit Your Content | A Widget that presents a form for user to submit the solution and get user and solution details |
+| Submit Content Form | A Widget that presents a form for user to submit the solution and get user and solution details |
 
 ## Playbook Collection
 
