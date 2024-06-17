@@ -110,7 +110,7 @@
                 "config": "fdb30570-3b26-4639-b306-631031c47131",
                 "params": {
                     "body": "<p>{{vars.steps.Format_Email.data['formatted_string']}}<\/p>",
-                    "subject": "Community Submission {{vars.input.params.category}}: {{vars.input.params.solutionTitle}}",
+                    "subject": "Community Submission: {{vars.input.params.category}}: {{vars.input.params.solutionTitle}}",
                     "iri_list": "{{vars.input.params.fileIRI}}",
                     "cc_recipients": "",
                     "to_recipients": "fsr-integrations@fortinet.com",
@@ -144,10 +144,10 @@
                     "bcc": "",
                     "from": "",
                     "type": "Manual Input",
-                    "content": "{{vars.steps.Format_Email.data['formatted_string']}}",
-                    "subject": "Community Submission {{vars.input.params.category}}: {{vars.input.params.solutionTitle}}",
+                    "content": "<p>{{vars.steps.Format_Email.data['formatted_string']}}</p>",
+                    "subject": "Community Submission: {{vars.input.params.category}}: {{vars.input.params.solutionTitle}}",
                     "iri_list": "{{vars.input.params.fileIRI}}",
-                    "body_type": "Plain Text",
+                    "body_type": "Rich Text",
                     "file_name": "",
                     "file_path": ""
                 },
